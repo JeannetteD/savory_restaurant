@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Savory Restaurant</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <div class="container">
+    <nav class="navbar navbar-default">
+      <%= link_to "Filipino Restaurant", root_path, class: 'navbar-brand'%>
+        <ul class="nav navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="<%= menu_path %>">Menu<span class="sr-only">(current)</sp></a></li>
+          <li class="nav-item">
+              <a class="nav-link" href="<%= food_items_path %>">Food Items/Prices</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="<%= contact_us_path %>">Contact Us</a>
+            </li>
+          </ul>
+          <br>
+          <br>
+          <p class="navbar-text pull-right">
+<% if user_signed_in? %>
+  Logged in as <strong><%= current_user.email %></strong>.
+  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+<% else %>
+  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+<% end %>
+
+          <!-- <form class="navbar-form navbar-left">
+              <input type="text" class="form-control" placeholder="Search">
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form> -->
+    </nav>
+    </div>
+    <div class="container">
+
+
+  <% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
+
+      <%= yield %>
+    </div>
+
+  </body>
+</html>

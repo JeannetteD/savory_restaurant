@@ -1,0 +1,23 @@
+  <h1>Menu</h1>
+
+  <p>Click links to view:</p>
+  <ul class="nav nav-pills">
+    <% @sections.each do |section|%>
+    <li class="nav-item">
+      <%= link_to section, menu_path(section: section), class: "nav-link #{params[:section] == section && 'active'}" %>
+    </li>
+      <% end %>
+  </ul>
+
+
+  <% @food_items.each do |item| %>
+    <div class="card">
+      <div class="card-block">
+      <%= item.name %>
+    </div>
+
+    <div class="card-block">
+    <%= image_tag(item.image_url_or_auto, :size => "150x150")%>
+      </div>
+    </div>
+  <% end %>
