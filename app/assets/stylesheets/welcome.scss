@@ -2,16 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.jumbotron {
-  background-color: #dea7a7;
-}
+// .jumbotron {
+//   background-color: #dea7a7;
+// }
+
 
 h1 {
+  padding-top: 200px;
   text-align: center;
+  font-size: 70px;
+  font-weight: bold;
+  color: #2F4F4F;
 }
 
 p {
-  text-align: left;
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
 }
 
 #btn-group {
